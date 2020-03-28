@@ -1,0 +1,23 @@
+
+version: '3'
+
+services:
+ login_pwa:
+   user: $UID:$GID
+   image:
+      pwa_rvce_login_pwa
+   ports:
+     - "8000:8000"
+   volumes:
+     - ./login_pwa:/login_pwa:Z
+   stdin_open: true
+   tty: true
+   command: >
+     sh -c "python manage.py makemigrations && python manage.py migrate && python manage.py runsslserver 0.0.0.0:8000"
+
+ login_pwa_node:
+   user: $UID:$GID
+   image:
+     rvce_node_server
+   ports:
+     - "8080:8080"

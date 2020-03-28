@@ -1,0 +1,41 @@
+
+<html>
+{% load static %}
+{% block 'content' %} {% endblock 'content' %}
+
+<head>
+<meta charset="UFT-8">
+<title>PWA</title>
+<meta name="theme-color" content="black">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="manifest" href="/static/app/manifest.json"/>
+<link rel="cannocial" href="base.html"/>
+ <h1 style="text-align:center;">Welcome to PWA</h1>
+
+
+
+<script>
+console.log("Hello");
+    if ('serviceWorker' in navigator) {
+        console.log("service worker function avilable");
+        window.addEventListener('load', function() {
+            console.log("Will the service worker register?");
+       navigator.serviceWorker.register("{% url 'sw.js' %}") .then(function(reg){
+           console.log("service worker rigistered");
+        
+        }).catch(function(err) {
+          console.log("service worker didn't", err)
+           console.log("err.message:", err.message)
+       });        
+    });
+
+
+    }
+    
+   </script>
+</head>
+<body bgcolor='cyan'>
+
+</body>
+</html>
+

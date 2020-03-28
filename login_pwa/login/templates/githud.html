@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block 'content' %}
+{% load staticfiles %}
+{% csrf_token %}
+
+{% load static %}  
+<script src="{% static '/js/github.js' %}" type="text/javascript"></script>  
+<h1>Github profile</h1>
+
+<div id='git_image'>
+    <p id='para'></p>
+</div>
+
+
+
+
+{% endblock 'content' %}

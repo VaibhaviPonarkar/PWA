@@ -1,0 +1,17 @@
+<html>
+<head>
+<title>Post an item </title>
+</head>
+
+<body>
+<h1>Post an item </h1>
+<form action="" method="POST">
+{% csrf_token %}
+Title: <input type="text" name="name"/><br/>
+Content: <br/>
+<input type="number" name="quantity"/>
+<input type="submit" value="Post"/>
+</form>
+</body>
+
+</html>
